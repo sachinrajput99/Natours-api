@@ -74,8 +74,6 @@ exports.login = catchAsync(async (req, res, next) => {
 });
 //loguser user out by replacing old cookie
 exports.logout = (req, res) => {
-  console.log('hello from logout route');
-
   res.cookie('jwt', 'loggedout', {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true
@@ -163,8 +161,8 @@ exports.isLoggedIn = async (req, res, next) => {
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
     // console.log(roles);
-    console.log(req.user.role);
-    console.log('user from restrict to ', req.user);
+    // console.log(req.user.role);
+    // console.log('user from restrict to ', req.user);
 
     // console.log(!roles.includes(req.user.role));
     // roles ['admin', 'lead-guide']. role='user'
